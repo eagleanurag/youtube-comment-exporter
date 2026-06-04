@@ -1,18 +1,18 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=32&pause=1000&color=FF0000&center=true&vCenter=true&random=false&width=700&height=70&lines=YouTube+Comment+Exporter+%F0%9F%93%A5;Export+All+Comments+%26+Replies;Clean+CSV+Output+in+Seconds;Powered+by+YouTube+Data+API+v3" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=32&pause=1000&color=FF0000&center=true&vCenter=true&random=false&width=700&height=70&lines=YouTube+Comment+Exporter+%F0%9F%93%A5;Export+All+Comments+%26+Replies;Excel+%2B+CSV+Output+in+Seconds;Powered+by+YouTube+Data+API+v3" alt="Typing SVG" />
 
 <br/>
 
 [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![YouTube API](https://img.shields.io/badge/YouTube-Data+API+v3-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://developers.google.com/youtube/v3)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
-[![CSV](https://img.shields.io/badge/Output-CSV-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white)]()
+[![Excel](https://img.shields.io/badge/Output-Excel%20%2F%20CSV-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white)]()
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
 
 <br/>
 
-> 🚀 **Export every comment & reply from any YouTube video into a structured CSV file — in seconds.**
+> 🚀 **Export every comment & reply from any YouTube video into a formatted Excel or CSV file — in seconds.**
 
 <br/>
 
@@ -30,7 +30,7 @@
 
 - 📥 **Fetches ALL comments** — no artificial limits
 - 💬 **Includes every reply** to every top-level comment
-- 📊 **Clean CSV output** with author, likes, timestamp & text
+- 📊 **Excel export** with auto-formatting applied automatically
 - ⚡ **Fast** — uses YouTube's official Data API v3
 
 </td>
@@ -39,7 +39,7 @@
 - 🔒 **Safe & reliable** — no scraping bans or hacks
 - 💾 **Auto-saves** to the same folder as the script
 - 🔁 **Handles pagination** — works on videos with thousands of comments
-- 🛠️ **Zero config** — just add your API key and run
+- 🛠️ **Choice of format** — Excel (.xlsx) or CSV at runtime
 
 </td>
 </tr>
@@ -96,13 +96,19 @@ VIDEO_ID = "CDTcQDBT8KI"    # ← the part after ?v= in the YouTube URL
 python export_comments.py
 ```
 
+You'll be asked to choose your export format:
+
 ```
-Starting export...
-Fetching comment page 1...
-Fetching comment page 2...
-...
-Done! 250 total comments + replies saved to:
-C:\Users\you\Desktop\youtube-comment-exporter\youtube_comments.csv
+  Export format:
+    1. Excel (.xlsx)  — formatted with borders, bold header, auto-fit columns
+    2. CSV   (.csv)   — plain text, universal compatibility
+
+  Enter 1 or 2 (default: 1):
+```
+
+```
+  ✅  Done! 250 comments + replies saved.
+  📄  File : C:\Users\you\Desktop\youtube-comment-exporter\youtube_comments.xlsx
 ```
 
 ---
@@ -130,7 +136,18 @@ C:\Users\you\Desktop\youtube-comment-exporter\youtube_comments.csv
 
 ## 📊 Output Format
 
-The exported `youtube_comments.csv` contains:
+### Excel (.xlsx) — Auto-formatted
+
+When you choose Excel, the file is automatically formatted:
+
+| Formatting | Applied |
+|------------|---------|
+| **Header row** | Bold, font size 14, left + top aligned |
+| **All cells** | Thin border on all 4 sides |
+| **All rows** | Left aligned, top aligned |
+| **Column widths** | Auto-fitted to content |
+
+### Columns (both formats)
 
 | Column | Description | Example |
 |--------|-------------|---------|
@@ -151,7 +168,8 @@ The exported `youtube_comments.csv` contains:
 | ![Python](https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python&logoColor=white) | Core language |
 | ![YouTube](https://img.shields.io/badge/-YouTube%20API%20v3-FF0000?style=flat&logo=youtube&logoColor=white) | Comment data source |
 | `requests` | HTTP calls to the API |
-| `csv` | Writing the output file |
+| `openpyxl` | Excel file creation and formatting |
+| `csv` | CSV file writing |
 | `os` | Cross-platform file paths |
 
 ---
@@ -193,7 +211,7 @@ This project is licensed under the **MIT License** — see [LICENSE](LICENSE) fo
 
 <br/>
 
-Made with ❤️ by [Anurag Pandey(eagleanurag)](https://github.com/eagleanurag)
+Made with ❤️ by [Anurag](https://github.com/eagleanurag)
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=14&pause=1000&color=888888&center=true&vCenter=true&width=400&lines=Thanks+for+visiting!+%F0%9F%91%8B" alt="footer" />
 
