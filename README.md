@@ -69,7 +69,7 @@ youtube-comment-exporter/
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/youtube-comment-exporter.git
+git clone https://github.com/eagleanurag/youtube-comment-exporter.git
 cd youtube-comment-exporter
 ```
 
@@ -193,7 +193,7 @@ This project is licensed under the **MIT License** — see [LICENSE](LICENSE) fo
 
 <br/>
 
-Made with ❤️ by [YOUR_NAME](https://github.com/YOUR_USERNAME)
+Made with ❤️ by [Anurag Pandey(eagleanurag)](https://github.com/eagleanurag)
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=14&pause=1000&color=888888&center=true&vCenter=true&width=400&lines=Thanks+for+visiting!+%F0%9F%91%8B" alt="footer" />
 
