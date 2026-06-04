@@ -1,0 +1,61 @@
+# ──────────────────────────────────────────────────────────────────────────────
+#  YouTube Comment Exporter — GitHub Actions Workflow
+#
+#  Trigger this manually from:
+#  GitHub → your repo → Actions → Export YouTube Comments → Run workflow
+#
+#  Required secret:
+#  GitHub → your repo → Settings → Secrets and variables → Actions → New secret
+#  Name:  YOUTUBE_API_KEY
+#  Value: your YouTube Data API v3 key
+# ──────────────────────────────────────────────────────────────────────────────
+
+name: Export YouTube Comments
+
+on:
+  workflow_dispatch:
+    inputs:
+      youtube_url:
+        description: "YouTube video URL or video ID"
+        required: true
+        type: string
+      export_format:
+        description: "Export format"
+        required: true
+        default: "xlsx"
+        type: choice
+        options:
+          - xlsx
+          - csv
+
+jobs:
+  export:
+    name: Fetch & Export Comments
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Export comments
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python export_comments.py \
+            --url "${{ inputs.youtube_url }}" \
+            --format "${{ inputs.export_format }}"
+
+      - name: Upload output file
+        uses: actions/upload-artifact@v4
+        with:
+          name: youtube-comments-${{ github.run_number }}
+          path: youtube_comments.*
+          retention-days: 7
